@@ -26,7 +26,6 @@ else
     $r_imie =  $tablica['imie'];
     $r_nazwisko =  $tablica['nazwisko'];
     $r_status = "no";
-    $_SESSION['alert'] = $tablica['imie'];
 
     $zapytanie_in = "INSERT INTO `rozliczenia` (`r_id`,`r_imie`,`r_nazwisko`,`r_pesel`,`r_data`,`r_status`) VALUES (NULL,'$r_imie', '$r_nazwisko','$pesel','$data','$r_status')";
     $wynik_in = $db13->query($zapytanie_in);

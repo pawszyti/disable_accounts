@@ -53,7 +53,8 @@ require_once ('config/config.php');
 
 </table>
 
-    <?php echo $_SESSION['alert'];
+    <?php
+    echo $_SESSION['alert'];
     session_unset($_SESSION['alert']);
 
 

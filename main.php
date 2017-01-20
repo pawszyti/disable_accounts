@@ -64,8 +64,7 @@ require_once ('config/config.php');
     for ($j = 0; $j < $ilosc; $j++) {
         $tablica_status = $wynik_status->fetch_assoc();
     }
-
-if ($tablica_status['czy_pracuje'] == 0){
+if ($tablica_status['czy_pracuje'] == 1){
         $ikona="no";
 }
 else{
@@ -77,7 +76,7 @@ else{
         <td><img src=\"img/".$ikona.".png\" width=\"25px\" height=\"25px\"></td>
         ";
         if ($tablica['r_status']==no)    {
-         echo "<td><a href=\"#\" class=\"myButton2\">Usuń</a></td>";
+         echo "<td><a href=\"del.php?id=".$tablica['r_id']."\" class=\"myButton2\">Usuń</a></td>";
         }
         else
         {
