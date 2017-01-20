@@ -27,7 +27,7 @@ require_once ('config/config.php');
 
 
 
-        <a href="#" class="myButton"><----</a>
+        <a href="main.php" class="myButton"><----</a>
 
 
         <span class="tytul">Rozliczenia</span>

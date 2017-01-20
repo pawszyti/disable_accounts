@@ -18,7 +18,7 @@ require_once ('config/config.php');
 
 
 
-        <a href="#" class="myButton">Dodaj</a>
+        <a href="dodaj.php" class="myButton">Dodaj</a>
 
 
 <span class="tytul">Rozliczenia</span>
@@ -35,7 +35,7 @@ require_once ('config/config.php');
         <th>PESEL</th>
         <th>Data rozliczenia</th>
         <th>W kolejce</th>
-        <th>Włączony w CRM</th>
+        <th>Włączono w CRM</th>
         <th>Usuń</th>
     </tr>
 
@@ -54,8 +54,27 @@ require_once ('config/config.php');
         <td>".$tablica['r_nazwisko']."</td>
         <td>".$tablica['r_pesel']."</td>
         <td>".$tablica['r_data']."</td>
-        <td><img src=\"img/".$tablica['r_status'].".png\" width=\"25px\" height=\"25px\"></td>
-        <td><img src=\"img/".$tablica['r_status_crm'].".png\" width=\"25px\" height=\"25px\"></td>
+        <td><img src=\"img/".$tablica['r_status'].".png\" width=\"25px\" height=\"25px\"></td>";
+
+        $pesel = $tablica['r_pesel'];
+        $zapytanie_status = "SELECT * FROM pracownicy_ewidencja WHERE pesel LIKE $pesel";
+        $wynik_status = $db2->query($zapytanie_status);
+        $ilosc_status = $wynik_status->num_rows;
+
+    for ($j = 0; $j < $ilosc; $j++) {
+        $tablica_status = $wynik_status->fetch_assoc();
+    }
+
+if ($tablica_status['czy_pracuje'] == 0){
+        $ikona="no";
+}
+else{
+    $ikona="ok";
+}
+
+
+        echo"
+        <td><img src=\"img/".$ikona.".png\" width=\"25px\" height=\"25px\"></td>
         ";
         if ($tablica['r_status']==no)    {
          echo "<td><a href=\"#\" class=\"myButton2\">Usuń</a></td>";

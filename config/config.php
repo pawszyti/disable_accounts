@@ -27,6 +27,9 @@ if (mysqli_connect_errno())
     echo "Error: ".$db2->connect_errno;
     exit;
 }
-//$db2-> query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
+
+$db2-> query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
+
+
 
 ?>
