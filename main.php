@@ -35,7 +35,7 @@ require_once ('config/config.php');
         <th>PESEL</th>
         <th>Data rozliczenia</th>
         <th>W kolejce</th>
-        <th>Włączono w CRM</th>
+        <th>Wyłączono w CRM</th>
         <th>Usuń</th>
     </tr>
 
@@ -64,7 +64,7 @@ require_once ('config/config.php');
     for ($j = 0; $j < $ilosc; $j++) {
         $tablica_status = $wynik_status->fetch_assoc();
     }
-if ($tablica_status['czy_pracuje'] == 1){
+if ($tablica_status['czy_pracuje'] == 0){
         $ikona="no";
 }
 else{
