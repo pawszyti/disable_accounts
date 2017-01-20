@@ -12,11 +12,12 @@ if (mysqli_connect_errno())
     exit;
 }
 
+$db13-> query("SET NAMES 'utf8' COLLATE 'utf8_general_ci'"); //dodanie kodowania utf-8
 
 
 
 $db2_host = '192.168.1.3';
-$db2_name = 'centrum';
+$db2_name = 'hr';
 $db2_user = 'skrypt';
 $db2_pass = 'pawel098!';
 
