@@ -34,7 +34,7 @@ require_once ('config/config.php');
         <th>Nazwisko</th>
         <th>PESEL</th>
         <th>Data rozliczenia</th>
-        <th>W kolejce</th>
+        <th>Cron</th>
         <th>Wyłączono w CRM</th>
         <th>Usuń</th>
     </tr>
@@ -59,22 +59,19 @@ require_once ('config/config.php');
         $pesel = $tablica['r_pesel'];
         $zapytanie_status = "SELECT * FROM pracownicy_ewidencja WHERE pesel LIKE $pesel";
         $wynik_status = $db2->query($zapytanie_status);
-        $ilosc_status = $wynik_status->num_rows;
-
-    for ($j = 0; $j < $ilosc; $j++) {
         $tablica_status = $wynik_status->fetch_assoc();
-    }
-if ($tablica_status['czy_pracuje'] == 0){
-        $ikona="no";
-}
-else{
-    $ikona="ok";
-}
-
-
+        if ($tablica_status['czy_pracuje'] == 1) {
+            $ikona = "no";
+        } else {
+            $ikona = "ok";
+        }
         echo"
         <td><img src=\"img/".$ikona.".png\" width=\"25px\" height=\"25px\"></td>
         ";
+
+
+
+
         if ($tablica['r_status']==no)    {
          echo "<td><a href=\"del.php?id=".$tablica['r_id']."\" class=\"myButton2\">Usuń</a></td>";
         }
