@@ -26,8 +26,10 @@ else
     $r_imie =  $tablica['imie'];
     $r_nazwisko =  $tablica['nazwisko'];
     $r_status = "no";
+    $r_login = str_replace(".","",$tablica['login']);
+    $r_samba = "no";
 
-    $zapytanie_in = "INSERT INTO `rozliczenia` (`r_id`,`r_imie`,`r_nazwisko`,`r_pesel`,`r_data`,`r_status`) VALUES (NULL,'$r_imie', '$r_nazwisko','$pesel','$data','$r_status')";
+    $zapytanie_in = "INSERT INTO `rozliczenia` (`r_id`,`r_imie`,`r_nazwisko`,`r_login`,`r_pesel`,`r_data`,`r_status`,`r_samba`) VALUES (NULL,'$r_imie', '$r_nazwisko','$r_login','$pesel','$data','$r_status','$r_samba')";
     $wynik_in = $db13->query($zapytanie_in);
     header('location: main.php');
 

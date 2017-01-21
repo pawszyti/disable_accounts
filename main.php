@@ -23,6 +23,7 @@ require_once ('config/config.php');
 
 <span class="tytul">Rozliczenia</span>
 
+        <a href="cron_rozliczenia.php" class="myButton">CRON</a>
 
     </div>
 </div>
@@ -35,7 +36,8 @@ require_once ('config/config.php');
         <th>PESEL</th>
         <th>Data rozliczenia</th>
         <th>Cron</th>
-        <th>Wyłączono w CRM</th>
+        <th>CRM Off</th>
+        <th>Samba Off</th>
         <th>Usuń</th>
     </tr>
 
@@ -67,6 +69,7 @@ require_once ('config/config.php');
         }
         echo"
         <td><img src=\"img/".$ikona.".png\" width=\"25px\" height=\"25px\"></td>
+        <td><img src=\"img/".$tablica['r_samba'].".png\" width = \"25px\" height = \"25px\" ></td >
         ";
 
 
