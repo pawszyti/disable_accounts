@@ -164,6 +164,13 @@ body {
   color: white;
   margin-bottom: 15px; }
 
+.alert2 {
+  padding: 20px;
+  background-color: #5cb85c;
+  color: white;
+  margin-bottom: 15px;
+  margin-top: 15px; }
+
 .closebtn {
   margin-left: 15px;
   color: white;

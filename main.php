@@ -28,6 +28,12 @@ require_once ('config/config.php');
     </div>
 </div>
 
+<?php
+echo $_SESSION['alert'];
+session_unset($_SESSION['alert']);
+
+
+?>
 <table class="tabela2" cellspacing='0'>
     <tr>
         <th>id</th>
@@ -42,16 +48,16 @@ require_once ('config/config.php');
     </tr>
 
     <?php
-    $zapytanie = "SELECT * FROM rozliczenia;";
+    $zapytanie = "SELECT * FROM rozliczenia ORDER BY r_id DESC;";
     $wynik = $db13->query($zapytanie);
     $ilosc = $wynik->num_rows;
-
+    $licznik = $ilosc;
     for ($i = 0; $i < $ilosc; $i++)
     {
     $tablica = $wynik->fetch_assoc();
         echo "
             <tr>
-        <td>".$tablica['r_id']."</td>
+        <td>".$licznik."</td>
         <td>".$tablica['r_imie']."</td>
         <td>".$tablica['r_nazwisko']."</td>
         <td>".$tablica['r_pesel']."</td>
@@ -70,7 +76,9 @@ require_once ('config/config.php');
         echo"
         <td><img src=\"img/".$ikona.".png\" width=\"25px\" height=\"25px\"></td>
         <td><img src=\"img/".$tablica['r_samba'].".png\" width = \"25px\" height = \"25px\" ></td >
+        
         ";
+        $licznik = $licznik-1;
 
 
 
