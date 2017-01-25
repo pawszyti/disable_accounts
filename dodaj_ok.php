@@ -5,8 +5,7 @@ if (isset($_POST['pesel']) && ($_POST['data'])){
     $pesel = $_POST['pesel'];
     $data = $_POST['data'];
     $dzis = date('Y-m-d');
-    if ($dzis>$data)
-    {
+    if ($dzis>$data) {
         $_SESSION['alert'] = " <div class=\"alert\">
         <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
         Data nie może być starsza niż obecna
@@ -14,15 +13,12 @@ if (isset($_POST['pesel']) && ($_POST['data'])){
         header('location: dodaj.php');
         exit();
     }
-    else
-    {
-
+    else {
         $zapytanie = "SELECT * FROM pracownicy_ewidencja WHERE pesel LIKE $pesel";
         $wynik = $db2->query($zapytanie);
         $ilosc = $wynik->num_rows;
 
-        if ($ilosc<1)
-        {
+        if ($ilosc<1) {
             $_SESSION['alert'] = " <div class=\"alert\">
             <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
             Nie znaleziono takiego nr pesel
@@ -30,8 +26,7 @@ if (isset($_POST['pesel']) && ($_POST['data'])){
             header('location: dodaj.php');
             exit();
         }
-        else
-        {
+        else {
             $zapytanie2 = "SELECT * FROM rozliczenia WHERE r_pesel LIKE $pesel";
             $wynik2 = $db13->query($zapytanie2);
             $ilosc2 = $wynik2->num_rows;
@@ -44,8 +39,7 @@ if (isset($_POST['pesel']) && ($_POST['data'])){
                 header('location: dodaj.php');
                 exit();
             }
-            else
-            {
+            else {
                 for ($i = 0; $i < $ilosc; $i++) {
                     $tablica = $wynik->fetch_assoc();
                 }
@@ -66,17 +60,12 @@ if (isset($_POST['pesel']) && ($_POST['data'])){
         }
     }
 }
-else
-{
+else {
     $_SESSION['alert'] = " <div class=\"alert\">
-  <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
+    <span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>
     Pola nie mogą być puste
-</div>";
+    </div>";
     header('location: dodaj.php');
     exit();
 }
 
-
-
-
-?>

@@ -1,6 +1,6 @@
 <?php
-session_start();
-require_once ('config/config.php');
+    session_start();
+    require_once ('config/config.php');
 ?>
 
 <!DOCTYPE html>
@@ -24,42 +24,26 @@ require_once ('config/config.php');
 
 <div class="menu_first">
     <div class="menu_second">
-
-
-
         <a href="main.php" class="myButton"><----</a>
-
-
         <span class="tytul">Rozliczenia</span>
-
-
     </div>
 </div>
 <form action="dodaj_ok.php" method="post" id="dodaj">
 <table class="tabela2" cellspacing='0'>
     <tr>
-
         <th style="text-align: center">PESEL</th>
         <th>Data rozliczenia</th>
-
     </tr>
-
-<tr>
-    <th><input type="text" name="pesel" maxlength=11 onkeyup="this.value=this.value.replace(/\D/g,'')"> </th>
-    <th><input type="text" id="datepicker" name="data"></th>
-    <th><a class="myButton2" onclick="document.forms['dodaj'].submit();">Dodaj</a></th>
-</tr>
-
-
+    <tr>
+        <th><input type="text" name="pesel" maxlength=11 onkeyup="this.value=this.value.replace(/\D/g,'')"> </th>
+        <th><input type="text" id="datepicker" name="data"></th>
+        <th><a class="myButton2" onclick="document.forms['dodaj'].submit();">Dodaj</a></th>
+    </tr>
 </table>
-
     <?php
-    echo $_SESSION['alert'];
-    session_unset($_SESSION['alert']);
-
-
+        echo $_SESSION['alert'];
+        session_unset($_SESSION['alert']);
     ?>
-
 </form>
 </body>
 </html>
