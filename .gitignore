@@ -1,1 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
+config
+cron_rozliczenia.php
+.idea/modules.xml
+.idea/rozliczenie.iml
+.idea/workspace.xml
+.sass-cache/
